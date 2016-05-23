@@ -1,0 +1,471 @@
+@import "css/normailze.css";
+@import "css/mixins.less";
+@import "css/skeleton.css";
+/*
+Theme Name: DHN
+Theme URI: http://underscores.me/
+Author: Trausti Dagsson/CDH
+Author URI: http://traustidagsson.com
+Description: Description
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: dhn
+Tags:
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+DHN is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+*/
+
+@color-orange: #fead10;
+@color-green: #80fe10;
+
+html {
+	background-color: #f2f2f2;
+	background-image: url('img/site-back.jpg');
+	background-repeat: repeat-x;
+	background-position: top left;
+}
+
+.site-sidebar {
+	position: absolute;
+
+	top: 0;
+	left: 0;
+	bottom: 0;
+
+	width: 270px;
+
+	padding: 17px;
+
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0.7+0,1+25,1+100 */
+	background: -moz-linear-gradient(top,  rgba(255,255,255,0.7) 0%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,0.7) 0%,rgba(255,255,255,1) 25%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(255,255,255,0.7) 0%,rgba(255,255,255,1) 25%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+
+	box-sizing: border-box;
+
+	@media(max-width: 800px) {
+		display: none;
+	}
+
+	.site-logo {
+		display: block;
+
+		width: 233px;
+		height: 155px;
+
+		background-image: url('img/site-logo.png');
+		background-repeat: none;
+	}
+}
+
+.site-main {
+	position: absolute;
+
+	top: 0;
+	left: 270px;
+
+	width: 100%;
+	max-width: 1200px;
+
+	box-sizing: border-box;
+
+	@media(max-width: 800px) {
+		left: 0;
+	}
+
+	.container {
+		padding: 40px;
+
+		border-bottom: 1px solid rgba(255, 255, 255, 0.95);
+
+		>h2 {
+			&:after {
+				content: " ";
+			
+				display: block;
+			
+				width: 250px;
+				height: 2px;
+
+				margin-top: 10px;
+			
+				background: #000;
+			}
+		}
+	}
+
+	.site-header {
+		padding: 20px 40px;
+
+		.site-title {
+			text-transform: uppercase;
+			font-size: 2.9rem;
+
+			@media(max-width: 800px) {
+				&:before {
+					content: " ";
+
+					float: left;
+
+					display: block;
+
+					width: 90px;
+					height: 60px;
+
+					margin-right: 10px;
+					margin-top: 3px;
+
+					background-image: url('img/site-logo.png');
+					background-repeat: none;
+					background-size: 90px 60px;
+
+					border-radius: 4px;
+				}
+			}
+
+			@media(max-width: 600px) {
+				font-size: 2rem;
+
+				&:before {
+					width: 72px;
+					height: 48px;
+
+					background-size: 72px 48px;
+				}
+			}
+
+			a {
+				text-decoration: none;
+			}
+
+    		.red {
+				color: #733600;
+				font-weight: 600;
+    		}
+
+    		.blue {
+				display: block;
+
+				color: #005173;
+				font-weight: 400;
+    		}
+		}
+
+		.nav-container {
+			margin-top: 50px;
+
+			ul.menu {
+				margin: 0;
+				padding: 0;
+
+				list-style: none;
+
+				li {
+					display: inline-block;
+
+					margin-right: 40px;
+
+					a {
+						font-weight: bold;
+						color: #000;
+						text-decoration: none;
+					}
+				}
+			}
+		}
+	}
+
+	.section-orange {
+		h2:after {
+			background-color: @color-orange;
+		}
+	}
+
+	.section-green {
+		h2:after {
+			background-color: @color-green;
+		}
+	}
+}
+
+.textwidget {
+	p {
+		>a {
+			display: inline-block;
+
+			padding-right: 35px;
+
+			background-image: url(img/bullet-arrow.png);
+			background-repeat: no-repeat;
+			background-size: 16px;
+			background-position: right center;
+		}
+	}
+	ul {
+		margin: 0;
+		padding: 0;
+
+		list-style: none;
+
+		li {
+			margin-bottom: 10px;
+			padding-left: 18px;
+
+			background-image: url(img/bullet-arrow.png);
+			background-repeat: no-repeat;
+			background-size: 16px;
+			background-position: left center;
+
+			text-indent: 0;
+
+			a {
+				background: none;
+			}
+		}
+	}
+}
+
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+}
+
+p {
+	margin-bottom: 1.5em;
+}
+
+dfn,
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+blockquote {
+	margin: 0 1.5em;
+}
+
+address {
+	margin: 0 0 1.5em;
+}
+
+pre {
+	background: #eee;
+	font-family: "Courier 10 Pitch", Courier, monospace;
+	line-height: 1.6;
+	margin-bottom: 1.6em;
+	max-width: 100%;
+	overflow: auto;
+	padding: 1.6em;
+}
+
+code,
+kbd,
+tt,
+var {
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+
+abbr,
+acronym {
+	border-bottom: 1px dotted #666;
+	cursor: help;
+}
+
+mark,
+ins {
+	background: #fff9c0;
+	text-decoration: none;
+}
+
+big {
+}
+
+/*--------------------------------------------------------------
+# Elements
+--------------------------------------------------------------*/
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: "";
+}
+
+blockquote,
+q {
+	quotes: "" "";
+}
+
+hr {
+	background-color: #ccc;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin: 0 1.5em 1.5em;
+}
+
+img {
+	height: auto; /* Make sure images are scaled correctly. */
+	max-width: 100%; /* Adhere to container width. */
+}
+
+table {
+	margin: 0 0 1.5em;
+	width: 100%;
+}
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar. */
+}
+
+/* Do not show the outline on the skip link target. */
+#content[tabindex="-1"]:focus {
+	outline: 0;
+}
+
+/*--------------------------------------------------------------
+# Alignments
+--------------------------------------------------------------*/
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/*--------------------------------------------------------------
+## Captions
+--------------------------------------------------------------*/
+.wp-caption {
+	margin-bottom: 1.5em;
+	max-width: 100%;
+}
+
+.wp-caption img[class*="wp-image-"] {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wp-caption .wp-caption-text {
+	margin: 0.8075em 0;
+}
+
+.wp-caption-text {
+	text-align: center;
+}
+
+/*--------------------------------------------------------------
+## Galleries
+--------------------------------------------------------------*/
+.gallery {
+	margin-bottom: 1.5em;
+}
+
+.gallery-item {
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+	width: 100%;
+}
+
+.gallery-columns-2 .gallery-item {
+	max-width: 50%;
+}
+
+.gallery-columns-3 .gallery-item {
+	max-width: 33.33%;
+}
+
+.gallery-columns-4 .gallery-item {
+	max-width: 25%;
+}
+
+.gallery-columns-5 .gallery-item {
+	max-width: 20%;
+}
+
+.gallery-columns-6 .gallery-item {
+	max-width: 16.66%;
+}
+
+.gallery-columns-7 .gallery-item {
+	max-width: 14.28%;
+}
+
+.gallery-columns-8 .gallery-item {
+	max-width: 12.5%;
+}
+
+.gallery-columns-9 .gallery-item {
+	max-width: 11.11%;
+}
+
+.gallery-caption {
+	display: block;
+}
