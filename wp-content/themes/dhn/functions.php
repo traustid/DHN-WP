@@ -78,6 +78,8 @@ function dhn_setup() {
 	) ) );
 
 	add_filter('show_admin_bar', '__return_false');
+
+	set_post_thumbnail_size( 1055 ); 
 }
 endif;
 add_action( 'after_setup_theme', 'dhn_setup' );

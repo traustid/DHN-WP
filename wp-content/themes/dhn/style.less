@@ -25,12 +25,28 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 
 @color-orange: #fead10;
 @color-green: #80fe10;
+@color-blue: #10a2fe;
+@color-dark-blue: #005173;
 
 html {
 	background-color: #f2f2f2;
 	background-image: url('img/site-back.jpg');
 	background-repeat: repeat-x;
 	background-position: top left;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	a {
+		text-decoration: none;
+	}
+}
+
+a {
+	color: @color-dark-blue;
+
+	&:hover {
+		color: @color-blue;
+	}
 }
 
 .site-sidebar {
@@ -44,11 +60,11 @@ html {
 
 	padding: 17px;
 
-	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0.7+0,1+25,1+100 */
-	background: -moz-linear-gradient(top,  rgba(255,255,255,0.7) 0%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top,  rgba(255,255,255,0.7) 0%,rgba(255,255,255,1) 25%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom,  rgba(255,255,255,0.7) 0%,rgba(255,255,255,1) 25%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0.55+0,1+33,1+100 */
+	background: -moz-linear-gradient(top,  rgba(255,255,255,0.55) 0%, rgba(255,255,255,1) 33%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,0.55) 0%,rgba(255,255,255,1) 33%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(255,255,255,0.55) 0%,rgba(255,255,255,1) 33%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8cffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
 
 	box-sizing: border-box;
 
@@ -67,6 +83,10 @@ html {
 		background-image: url('img/site-logo.png');
 		background-repeat: none;
 	}
+
+	.textwidget {
+		border: 1px solid #F2F2F2;
+	}
 }
 
 .site-main {
@@ -74,8 +94,8 @@ html {
 
 	top: 0;
 	left: 270px;
+	right: 0;
 
-	width: 100%;
 	max-width: 1200px;
 
 	box-sizing: border-box;
@@ -157,7 +177,7 @@ html {
     		.blue {
 				display: block;
 
-				color: #005173;
+				color: @color-dark-blue;
 				font-weight: 400;
     		}
 		}
@@ -231,6 +251,171 @@ html {
 
 			a {
 				background: none;
+			}
+		}
+	}
+}
+
+.post, .page {
+	h2.entry-title {
+		font-size: 3.2rem
+	}
+
+	.entry-meta {
+		margin-bottom: 4.5rem;
+		margin-top: -1rem;
+
+		font-size: 1.8rem;
+		color: #616161;
+
+		.archive & {
+			margin-bottom: 1.5rem;
+			margin-top: 0;
+	
+			font-size: 1.4rem;
+			color: #999;
+		}
+
+		.entry-tags {
+			display: inline-block;
+
+			position: relative;
+
+			top: -2px;
+
+			margin-left: 15px;
+			padding-left: 20px;
+
+			border-left: 1px solid #C3C3C3;
+
+			a {
+				display: inline-block;
+
+				padding: 2px 5px;
+
+				text-decoration: none;
+				color: #fff;
+				font-size: 1.34rem;
+
+				border-radius: 3px;
+
+				background: #009FE3;
+			}
+		}
+	}
+	
+	.entry-content {
+		blockquote {
+			padding-left: 20px;
+			
+			border-left: 3px solid #ccc;
+			
+			font-style: italic;
+		}
+	}
+}
+
+.widget {
+	&.recent-posts-widget-with-thumbnails {
+		>ul {
+			>li {
+				.inner {				
+					>a {
+						display: block;
+
+						margin-bottom: 1rem;
+
+						font-size: 2rem;
+						line-height: 1.25; 
+						font-weight: 400;
+						text-decoration: none;
+					}
+
+					.rpwwt-post-date {
+						margin-bottom: 1.5rem;
+
+						font-size: 1.4rem;
+						color: #999;
+					}
+				}
+			}
+		}
+	}
+	&.tile-boxes {
+		>ul {
+			>li {
+				float: left;
+
+				width: 33%;
+
+				margin: 0;
+
+				box-sizing: border-box;
+
+				.inner {
+					padding: 20px;
+					margin: 0 20px 20px 0;
+
+					background: #fff;
+				}
+
+				@media(max-width: 1180px) {
+					width: 50%;
+				}
+
+				@media(max-width: 700px) {
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+
+.page-header {
+	h1.page-title {
+		font-weight: 600;
+		color: #733600;
+		font-size: 2.2rem;
+
+		&:first-word {
+			color: #999;
+		}
+	}
+}
+
+.tile-grid {
+	.archive.tag &, .archive.category & {
+		padding-top: 50px;
+
+		.page-header {
+			margin-top: -50px;
+		}
+	}
+
+
+	.grid-item {
+		width: 33%;
+
+		margin-bottom: 20px;
+
+		box-sizing: border-box;
+
+		@media(max-width: 1200px) {
+			width: 50%;
+		}
+
+		@media(max-width: 700px) {
+			width: 100%;
+		}
+
+		article {
+			padding: 20px;
+			margin: 0 20px 0 0;
+
+			background: #fff;
+
+			@media(max-width: 700px) {
+				margin: 0;
 			}
 		}
 	}

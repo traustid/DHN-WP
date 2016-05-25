@@ -25,8 +25,8 @@ function dhn_posted_on() {
 	);
 
 	$posted_on = sprintf(
-		esc_html_x( 'Posted on %s', 'post date', 'dhn' ),
-		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+		esc_html_x( '%s', 'post date', 'dhn' ),
+		esc_attr( get_the_date() )
 	);
 
 	$byline = sprintf(
@@ -53,9 +53,9 @@ function dhn_entry_footer() {
 		}
 
 		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'dhn' ) );
+		$tags_list = get_the_tag_list( '', esc_html__( ' ', 'dhn' ) );
 		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'dhn' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+			printf( '<span class="tags-links">' . esc_html__( '%1$s', 'dhn' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 		}
 	}
 
@@ -65,16 +65,17 @@ function dhn_entry_footer() {
 		comments_popup_link( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'dhn' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ) );
 		echo '</span>';
 	}
-
+/*
 	edit_post_link(
 		sprintf(
 			/* translators: %s: Name of current post */
-			esc_html__( 'Edit %s', 'dhn' ),
+/*			esc_html__( 'Edit %s', 'dhn' ),
 			the_title( '<span class="screen-reader-text">"', '"</span>', false )
 		),
 		'<span class="edit-link">',
 		'</span>'
 	);
+*/
 }
 endif;
 

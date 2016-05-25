@@ -24,7 +24,7 @@
 
 
 <div class="site-sidebar">
-	<a class="site-logo"></a>
+	<a class="site-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>"></a>
 
 	<?php get_sidebar(); ?>
 </div>
