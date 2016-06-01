@@ -31,12 +31,12 @@ if ( is_multisite() ) {
 		// switch to next blog
 		switch_to_blog( $site[ 'blog_id' ] );
 		// remove settings
-		delete_option( 'widget_recent-posts-widget-with-thumbnails' );
+		delete_option( 'widget_recent-posts-widget-with-thumbnails-cdh' );
 	}
 	// restore the current blog, after calling switch_to_blog()
 	restore_current_blog();
 } else {
 	// remove settings
-	delete_option( 'widget_recent-posts-widget-with-thumbnails' );
+	delete_option( 'widget_recent-posts-widget-with-thumbnails-cdh' );
 }
 

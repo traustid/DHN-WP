@@ -50,7 +50,7 @@ a {
 }
 
 .site-sidebar {
-	position: absolute;
+	position: fixed;
 
 	top: 0;
 	left: 0;
@@ -217,21 +217,29 @@ a {
 			background-color: @color-green;
 		}
 	}
-}
 
-.textwidget {
-	p {
-		>a {
-			display: inline-block;
-
-			padding-right: 35px;
-
-			background-image: url(img/bullet-arrow.png);
-			background-repeat: no-repeat;
-			background-size: 16px;
-			background-position: right center;
+	.section-blue {
+		h2:after {
+			background-color: @color-green;
 		}
 	}
+}
+
+a.more-link {
+	display: inline-block;
+
+	padding-right: 35px;
+
+	background-image: url(img/bullet-arrow.png);
+	background-repeat: no-repeat;
+	background-size: 16px;
+	background-position: right center;
+
+	text-decoration: none;
+}
+
+
+.textwidget {
 	ul {
 		margin: 0;
 		padding: 0;
@@ -254,6 +262,14 @@ a {
 			}
 		}
 	}
+
+}
+
+.single-box {
+	padding: 20px;
+	margin: 0 20px 20px 0;
+
+	background: #fff;
 }
 
 .post, .page {
@@ -316,7 +332,7 @@ a {
 }
 
 .widget {
-	&.recent-posts-widget-with-thumbnails {
+	&.recent-posts-widget-with-thumbnails-cdh {
 		>ul {
 			>li {
 				.inner {				
@@ -341,8 +357,13 @@ a {
 			}
 		}
 	}
-	&.tile-boxes {
+}
+
+.tile-boxes {
+	.textwidget &, .widget& {
 		>ul {
+			margin-bottom: 0;
+
 			>li {
 				float: left;
 

@@ -55,5 +55,10 @@
 			endif; ?></li>
 	<?php endwhile; ?>
 	</ul>
+
+	<?php if ( $more_news_title && $more_news_url) { ?>
+		<a class="more-link"  href="<?php echo $more_news_url; ?>"><?php echo $more_news_title; ?></a>
+	<?php } ?>
+
 	<?php echo $after_widget; ?>
 </div>
