@@ -95,11 +95,11 @@ function create_post_type() {
       'has_archive' => true,
     )
   );
-  register_post_type( 'institutes',
+  register_post_type( 'departments',
     array(
       'labels' => array(
-        'name' => __( 'Institutes' ),
-        'singular_name' => __( 'Institute' )
+        'name' => __( 'Departments' ),
+        'singular_name' => __( 'Department' )
       ),
       'public' => true,
       'has_archive' => true,
