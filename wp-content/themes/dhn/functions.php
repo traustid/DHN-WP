@@ -85,7 +85,7 @@ endif;
 add_action( 'after_setup_theme', 'dhn_setup' );
 
 function create_post_type() {
-  register_post_type( 'dhn_project',
+  register_post_type( 'projects',
     array(
       'labels' => array(
         'name' => __( 'Projects' ),
@@ -95,7 +95,7 @@ function create_post_type() {
       'has_archive' => true,
     )
   );
-  register_post_type( 'dhn_institute',
+  register_post_type( 'institutes',
     array(
       'labels' => array(
         'name' => __( 'Institutes' ),
@@ -105,7 +105,7 @@ function create_post_type() {
       'has_archive' => true,
     )
   );
-  register_post_type( 'dhn_people',
+  register_post_type( 'people',
     array(
       'labels' => array(
         'name' => __( 'People' ),
