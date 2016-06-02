@@ -84,6 +84,40 @@ function dhn_setup() {
 endif;
 add_action( 'after_setup_theme', 'dhn_setup' );
 
+function create_post_type() {
+  register_post_type( 'dhn_project',
+    array(
+      'labels' => array(
+        'name' => __( 'Projects' ),
+        'singular_name' => __( 'Project' )
+      ),
+      'public' => true,
+      'has_archive' => true,
+    )
+  );
+  register_post_type( 'dhn_institute',
+    array(
+      'labels' => array(
+        'name' => __( 'Institutes' ),
+        'singular_name' => __( 'Institute' )
+      ),
+      'public' => true,
+      'has_archive' => true,
+    )
+  );
+  register_post_type( 'dhn_people',
+    array(
+      'labels' => array(
+        'name' => __( 'People' ),
+        'singular_name' => __( 'People' )
+      ),
+      'public' => true,
+      'has_archive' => true,
+    )
+  );
+}
+add_action( 'init', 'create_post_type' );
+
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
