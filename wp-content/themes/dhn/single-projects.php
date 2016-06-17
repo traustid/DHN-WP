@@ -63,24 +63,33 @@ get_header(); ?>
 					<div class="single-box">
 						<div class="row">
 							<div class="eight columns">
-								<h4>Department</h4>
-								<p>
-									<?php
-									$institutionId = get_post_meta(get_the_ID(), 'institution', true);
 
-									echo '<a class="more-link" href="'.get_permalink($institutionId).'">'.get_the_title($institutionId).'</a>';
-									?>
-								</p>
-								<h4>Project members</h4>
-								<p>
-									<?php
-									echo get_post_meta(get_the_ID(), 'project_members', true);
-									?>
-								</p>
+								<?php if (get_post_meta(get_the_ID(), 'department', true) != '') { ?>
+									<h4>Department</h4>
+									<p>
+										<?php
+										echo get_post_meta(get_the_ID(), 'department', true);
+										?>
+									</p>
+								<?php } ?>
+
+								<?php if (get_post_meta(get_the_ID(), 'project_members', true) != '') { ?>
+									<h4>Project members</h4>
+									<p>
+										<?php
+										echo get_post_meta(get_the_ID(), 'project_members', true);
+										?>
+									</p>
+								<?php } ?>
+
 							</div>
 							<div class="four columns">
-								<h4>Project website</h4>
-								<a class="more-link" target="_blank" href="<?php echo get_post_meta(get_the_ID(), 'link', true); ?>"><?php echo get_post_meta(get_the_ID(), 'link', true); ?></a>
+
+								<?php if (get_post_meta(get_the_ID(), 'link', true) != '') { ?>
+									<h4>Project website</h4>
+									<a class="more-link" target="_blank" href="<?php echo get_post_meta(get_the_ID(), 'link', true); ?>"><?php echo get_post_meta(get_the_ID(), 'link', true); ?></a>
+								<?php } ?>
+
 							</div>
 						</div>
 					</div>
