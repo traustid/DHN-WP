@@ -13,6 +13,12 @@
 	<div class="grid-item">
 <?php } ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<?php
+		if (is_archive()) {
+			the_post_thumbnail();
+		}
+	?>
+
 	<header class="entry-header">
 
 		<?php

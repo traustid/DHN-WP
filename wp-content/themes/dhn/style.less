@@ -76,8 +76,8 @@ ul.ul-buttons {
 }
 
 .post-type-taxonomy {
-	margin: 15px 0;
-	padding: 15px 0;
+	margin: 0 0 15px 0;
+	padding: 0 0 15px 0;
 
 	border-bottom: 1px solid #fff;
 
@@ -587,13 +587,20 @@ a.more-link {
 		}
 
 		article {
-			padding: 20px;
 			margin: 0 20px 0 0;
 
 			background: #fff;
 
 			@media(max-width: 700px) {
 				margin: 0;
+			}
+
+			.entry-header {
+				padding: 20px;
+			}
+
+			.entry-content {
+				padding: 0 20px 20px 20px;
 			}
 		}
 	}

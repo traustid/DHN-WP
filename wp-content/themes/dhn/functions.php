@@ -40,7 +40,8 @@ function dhn_setup() {
 	 *
 	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 	 */
-	add_theme_support( 'post-thumbnails' );
+//	add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'post-thumbnails', array( 'post', 'projects' ) );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -96,6 +97,16 @@ function create_taxonomies() {
         'rewrite' => array('slug' => 'projects/category')
     ));
 
+    register_taxonomy('projects-countries', array('projects'), array(
+        'labels' => array(
+            'name' => 'Projects Countries'
+        ),
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'query_var' => true,
+        'rewrite' => array('slug' => 'projects/country')
+    ));
+
     register_taxonomy('projects-tags', array('projects'), array(
     	'hierarchical' => false,
         'labels' => array(
@@ -117,6 +128,7 @@ function create_post_type() {
         'name' => __( 'Projects' ),
         'singular_name' => __( 'Project' )
       ),
+      'supports' => array( 'title', 'editor', 'thumbnail', 'revisions' ),
       'public' => true,
       'has_archive' => true
     )
@@ -127,6 +139,7 @@ function create_post_type() {
         'name' => __( 'Departments' ),
         'singular_name' => __( 'Department' )
       ),
+      'supports' => array( 'title', 'editor', 'thumbnail', 'revisions' ),
       'public' => true,
       'has_archive' => true
     )
@@ -137,6 +150,7 @@ function create_post_type() {
         'name' => __( 'People' ),
         'singular_name' => __( 'People' )
       ),
+      'supports' => array( 'title', 'editor', 'thumbnail', 'revisions' ),
       'public' => true,
       'has_archive' => true
     )
