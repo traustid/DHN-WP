@@ -11,6 +11,14 @@ get_header(); ?>
 
 	<div id="primary" class="container">
 
+		<?php if (single_tag_title('', false) != '') { ?>
+			<header class="page-header">
+				<h1 class="page-title">
+					<?php is_post_type_archive('projects') ? single_tag_title('Project type: ') : ''; ?>
+				</h1>
+			</header>
+		<?php } ?>
+
 		<?php if ( is_active_sidebar( 'above-content' ) ) { ?>
 			<div class="row">
 				<div class="twelve columns">
@@ -19,18 +27,21 @@ get_header(); ?>
 			</div>
 		<?php } ?>
 
+		<?php if (single_tag_title('', false) != '') { ?>
+			<header class="page-header">
+				<h1 class="page-title">
+					<?php single_tag_title('Project type: '); ?>
+				</h1>
+			</header>
+		<?php } ?>
+
+
 		<div class="row">
 			<div class="twelve columns tile-grid">
 
 			<?php
 			if ( have_posts() ) : ?>
 
-				<header class="page-header">
-					<?php
-						the_archive_title( '<h1 class="page-title">', '</h1>' );
-						the_archive_description( '<div class="taxonomy-description">', '</div>' );
-					?>
-				</header><!-- .page-header -->
 
 				<?php
 				/* Start the Loop */
