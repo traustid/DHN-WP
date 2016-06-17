@@ -84,6 +84,32 @@ function dhn_setup() {
 endif;
 add_action( 'after_setup_theme', 'dhn_setup' );
 
+function create_taxonomies() {
+    register_taxonomy('projects-categories', array('projects'), array(
+    	'hierarchical' => true,
+        'labels' => array(
+            'name' => 'Projects Categories'
+        ),
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'query_var' => true,
+        'rewrite' => array('slug' => 'projects/category')
+    ));
+
+    register_taxonomy('projects-tags', array('projects'), array(
+    	'hierarchical' => false,
+        'labels' => array(
+            'name' => 'Projects Tags'
+        ),
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'update_count_callback' => '_update_post_term_count',
+        'query_var' => true,
+        'rewrite' => array('slug' => 'projects/tag')
+    ));
+}
+add_action('init', 'create_taxonomies');
+
 function create_post_type() {
   register_post_type( 'projects',
     array(
@@ -92,7 +118,7 @@ function create_post_type() {
         'singular_name' => __( 'Project' )
       ),
       'public' => true,
-      'has_archive' => true,
+      'has_archive' => true
     )
   );
   register_post_type( 'departments',
@@ -102,7 +128,7 @@ function create_post_type() {
         'singular_name' => __( 'Department' )
       ),
       'public' => true,
-      'has_archive' => true,
+      'has_archive' => true
     )
   );
   register_post_type( 'people',
@@ -112,7 +138,7 @@ function create_post_type() {
         'singular_name' => __( 'People' )
       ),
       'public' => true,
-      'has_archive' => true,
+      'has_archive' => true
     )
   );
 }
@@ -148,6 +174,15 @@ function dhn_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Front page', 'dhn' ),
 		'id'            => 'front-page',
+		'description'   => esc_html__( 'Add widgets here.', 'dhn' ),
+		'before_widget' => '<div id="%1$s" class="container widget %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Above content', 'dhn' ),
+		'id'            => 'above-content',
 		'description'   => esc_html__( 'Add widgets here.', 'dhn' ),
 		'before_widget' => '<div id="%1$s" class="container widget %2$s">',
 		'after_widget'  => '</div>',

@@ -16,14 +16,66 @@ get_header(); ?>
 			<?php
 			while ( have_posts() ) : the_post();
 
-				get_template_part( 'template-parts/content', get_post_format() );
+				?>
+					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+						<header class="entry-header">
 
-				the_post_navigation();
+							<?php
+								if ( is_single() ) {
+									the_title( '<h2 class="entry-title">', '</h2>' );
+								} else {
+									the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+								}
+							?>
 
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
+						</header><!-- .entry-header -->
+
+						<div class="entry-content">
+							<?php
+								if (is_archive()) {
+									the_excerpt();
+								}
+								else {			
+									the_content( sprintf(
+										/* translators: %s: Name of current post. */
+										wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'dhn' ), array( 'span' => array( 'class' => array() ) ) ),
+										the_title( '<span class="screen-reader-text">"', '"</span>', false )
+									) );
+								}
+
+								wp_link_pages( array(
+									'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'dhn' ),
+									'after'  => '</div>',
+								) );
+							?>
+						</div>
+					</article>
+
+					<div class="single-box">
+						<div class="row">
+							<div class="eight columns">
+								<h4>Department</h4>
+								<p>
+									<?php
+									$institutionId = get_post_meta(get_the_ID(), 'institution', true);
+
+									echo '<a class="more-link" href="'.get_permalink($institutionId).'">'.get_the_title($institutionId).'</a>';
+									?>
+								</p>
+								<h4>Project members</h4>
+								<p>
+									<?php
+									echo get_post_meta(get_the_ID(), 'project_members', true);
+									?>
+								</p>
+							</div>
+							<div class="four columns">
+								<h4>Project website</h4>
+								<a class="more-link" target="_blank" href="<?php echo get_post_meta(get_the_ID(), 'link', true); ?>"><?php echo get_post_meta(get_the_ID(), 'link', true); ?></a>
+							</div>
+						</div>
+					</div>
+				<?php
 
 			endwhile; // End of the loop.
 			?>
