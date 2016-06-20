@@ -222,6 +222,12 @@ ul.ul-buttons {
 				}
 			}
 
+			@media(max-width: 360px) {
+				&:before {
+					float: none;
+				}
+			}
+
 			a {
 				text-decoration: none;
 			}
@@ -393,6 +399,8 @@ ul.ul-buttons {
 
 					z-index: 100;
 
+					overflow-y: auto;
+
 					.transition(all 200ms ease-in-out);
 					.transform(translateX(-120%));
 
@@ -429,6 +437,12 @@ ul.ul-buttons {
 				overflow: hidden;
 
 				.transform(translateY(-50%));
+
+				@media(max-width: 360px) {
+					top: 20px;
+
+					.transform(translateY(0));
+				}
 
 				@media(min-width: 700px) {
 					display: none;
