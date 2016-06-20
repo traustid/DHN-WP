@@ -36,7 +36,8 @@
 			<div class="twelve columns">
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><span class="red">Digital Humanities</span> <span class="blue">in the Nordic Countries</span></a></h1>
 
-				<div class="nav-container">				
+				<div class="nav-container">
+					<button class="menu-button">Main menu</button>	
 					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 				</div>
 

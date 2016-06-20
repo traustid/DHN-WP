@@ -77,18 +77,32 @@ ul.ul-buttons {
 
 .post-type-taxonomy {
 	margin: 0 0 15px 0;
-	padding: 0 0 15px 0;
+	padding: 0 0 10px 0;
 
 	border-bottom: 1px solid #fff;
 
+	text-align: right;
+
+	.archive & {
+		margin-right: 25px;
+	}
+
 	.widget-title {
-		float: left;
+		display: inline-block;
 
 		margin-right: 15px;
 		padding: 3px 0;
 
 		font-weight: 600;
 		color: #666;
+	}
+
+	ul.ul-buttons {
+		display: inline-block;
+
+		li {
+			font-size: 1.4rem;
+		}
 	}
 }
 
@@ -280,47 +294,54 @@ ul.ul-buttons {
 					}
 
 					.sub-menu {
-						position: absolute;
+						padding: 15px 15px 0 15px;
+						margin-bottom: 0;
 
-						min-width: 100%;
+						@media(min-width: 700px) {
+							position: absolute;
 
-						margin: -40px -20px -20px -20px;
-						padding: 60px 20px 10px 20px;
+							min-width: 100%;
 
-						border: 1px solid rgba(0, 0, 0, 0.24);
-						border-radius: 4px;
-						box-shadow: 0 2px 2px rgba(0, 0, 0, 0.14);
+							margin: -40px -20px -20px -20px;
+							padding: 60px 20px 10px 20px;
 
-						background: rgba(255, 255, 255, 0.75);
+							border: 1px solid rgba(0, 0, 0, 0.24);
+							border-radius: 4px;
+							box-shadow: 0 2px 2px rgba(0, 0, 0, 0.14);
 
-						list-style: none;
+							background: rgba(255, 255, 255, 0.98);
 
-						z-index: 100;
+							list-style: none;
 
-						opacity: 0;
+							z-index: 100;
 
-						.transform(translateY(-20px));
-						.transition(all 200ms ease-in-out);
+							opacity: 0;
 
-						pointer-events: none;
+							.transform(translateY(-20px));
+							.transition(all 200ms ease-in-out);
 
-						li {
-							margin: 0 0 10px 0;
+							pointer-events: none;
 
-							a {
-								color: #3e3e3e;
-								font-weight: 600;
-								text-decoration: none;
-							}
+							li {
+								margin: 0 0 10px 0;
 
-							&.current-menu-item {
 								a {
-									padding-left: 15px;
+									color: #3e3e3e;
+									font-weight: 600;
+									text-decoration: none;
 
-									background-image: url(img/bullet-arrow.png);
-									background-repeat: no-repeat;
-									background-size: 12px;
-									background-position: left;
+									white-space: nowrap;
+								}
+
+								&.current-menu-item {
+									a {
+										padding-left: 15px;
+
+										background-image: url(img/bullet-arrow.png);
+										background-repeat: no-repeat;
+										background-size: 12px;
+										background-position: left;
+									}
 								}
 							}
 						}
@@ -347,17 +368,52 @@ ul.ul-buttons {
 								background-size: 12px 7px;
 							}
 						}
-
-						.sub-menu {
-							display: block;
-
-							opacity: 1;
-
-							.transform(translateY(0));
-
-							pointer-events: all;
-						}
 					}
+				}
+
+				@media(max-width: 700px) {
+					position: fixed;
+
+					right: 0;
+					top: 0;
+					bottom: 0;
+
+					padding: 15px 25px;
+
+					background: #fff;
+
+					border-left: 1px solid #acacac;
+					box-shadow: -4px 0px 8px rgba(0, 0, 0, 0.31);
+
+					z-index: 100;
+
+					li {
+						display: block;
+
+						padding: 10px 0;
+					}
+				}
+			}
+
+			.menu-button {
+				position: absolute;
+
+				right: 20px;
+				top: 50%;
+
+				width: 39px;
+
+				background: #fff;
+				box-sizing: border-box;
+
+				text-indent: 1000px;
+
+				overflow: hidden;
+
+				.transform(translateY(-50%));
+
+				@media(min-width: 700px) {
+					display: none;
 				}
 			}
 		}
@@ -424,12 +480,14 @@ a.more-link {
 
 .single-box {
 	padding: 20px;
-	margin: 0 20px 20px 0;
+	margin: 0 0 20px 0;
 
 	background: #fff;
+
+	border-radius: 1px;
 }
 
-.post, .page {
+.post, .page, .single {
 	h2.entry-title {
 		font-size: 3.2rem
 	}
@@ -478,6 +536,16 @@ a.more-link {
 	}
 	
 	.entry-content {
+		.wp-post-image {
+			@media(min-width: 700px) {
+				float: right;
+
+				margin: 0 0 15px 15px;
+
+				border-radius: 3px;
+			}
+		}
+
 		blockquote {
 			padding-left: 20px;
 			
@@ -550,27 +618,34 @@ a.more-link {
 }
 
 .page-header {
+	margin: 20px 0 40px 0;
+
 	h1.page-title {
 		font-weight: 600;
 		color: #733600;
 		font-size: 2.2rem;
 
+		.larger {
+			font-size: 2.5rem;
+		}
+
 		&:first-word {
 			color: #999;
+		}
+
+		.icon {
+			position: relative;
+
+			top: 6px;
+
+			margin-right: 8px;
+
+			background-size: 12px 20px;
 		}
 	}
 }
 
 .tile-grid {
-	.archive.tag &, .archive.category & {
-		padding-top: 50px;
-
-		.page-header {
-			margin-top: -50px;
-		}
-	}
-
-
 	.grid-item {
 		width: 33%;
 
@@ -840,4 +915,18 @@ table {
 
 .gallery-caption {
 	display: block;
+}
+
+.icon {
+	display: inline-block;
+
+	width: 30px;
+	height: 30px;
+
+	&.tag-icon {
+		background-image: url('img/icon-tag.png');
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: 18px 30px;		
+	}
 }

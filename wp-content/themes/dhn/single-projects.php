@@ -45,11 +45,14 @@ get_header(); ?>
 									the_excerpt();
 								}
 								else {			
+									the_post_thumbnail(array(400, 400));
 									the_content( sprintf(
 										/* translators: %s: Name of current post. */
 										wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'dhn' ), array( 'span' => array( 'class' => array() ) ) ),
 										the_title( '<span class="screen-reader-text">"', '"</span>', false )
 									) );
+
+									echo '<div class="u-cf"></div>';
 								}
 
 								wp_link_pages( array(

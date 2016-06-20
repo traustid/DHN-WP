@@ -86,17 +86,6 @@ endif;
 add_action( 'after_setup_theme', 'dhn_setup' );
 
 function create_taxonomies() {
-    register_taxonomy('projects-categories', array('projects'), array(
-    	'hierarchical' => true,
-        'labels' => array(
-            'name' => 'Projects Categories'
-        ),
-        'show_ui' => true,
-        'show_admin_column' => true,
-        'query_var' => true,
-        'rewrite' => array('slug' => 'projects/category')
-    ));
-
     register_taxonomy('projects-countries', array('projects'), array(
         'labels' => array(
             'name' => 'Projects Countries'
@@ -110,7 +99,7 @@ function create_taxonomies() {
     register_taxonomy('projects-tags', array('projects'), array(
     	'hierarchical' => false,
         'labels' => array(
-            'name' => 'Projects Tags'
+            'name' => 'Projects Types'
         ),
         'show_ui' => true,
         'show_admin_column' => true,
@@ -118,6 +107,27 @@ function create_taxonomies() {
         'query_var' => true,
         'rewrite' => array('slug' => 'projects/tag')
     ));
+
+    register_taxonomy('departments-countries', array('departments'), array(
+        'labels' => array(
+            'name' => 'Departments Countries'
+        ),
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'query_var' => true,
+        'rewrite' => array('slug' => 'departments/country')
+    ));
+
+    register_taxonomy('people-countries', array('people'), array(
+        'labels' => array(
+            'name' => 'People Countries'
+        ),
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'query_var' => true,
+        'rewrite' => array('slug' => 'people/country')
+    ));
+
 }
 add_action('init', 'create_taxonomies');
 
@@ -148,7 +158,7 @@ function create_post_type() {
     array(
       'labels' => array(
         'name' => __( 'People' ),
-        'singular_name' => __( 'People' )
+        'singular_name' => __( 'Person' )
       ),
       'supports' => array( 'title', 'editor', 'thumbnail', 'revisions' ),
       'public' => true,

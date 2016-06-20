@@ -11,14 +11,6 @@ get_header(); ?>
 
 	<div id="primary" class="container">
 
-		<?php if (single_tag_title('', false) != '') { ?>
-			<header class="page-header">
-				<h1 class="page-title">
-					<?php is_post_type_archive('projects') ? single_tag_title('Project type: ') : ''; ?>
-				</h1>
-			</header>
-		<?php } ?>
-
 		<?php if ( is_active_sidebar( 'above-content' ) ) { ?>
 			<div class="row">
 				<div class="twelve columns">
@@ -27,13 +19,26 @@ get_header(); ?>
 			</div>
 		<?php } ?>
 
-		<?php if (single_tag_title('', false) != '') { ?>
 			<header class="page-header">
 				<h1 class="page-title">
-					<?php single_tag_title('Project type: '); ?>
+					<?php
+						if (get_post_type() == 'post') {
+							echo '<span class="larger">News archive</span><br/>';
+						}
+						else if (get_post_type() == 'projects') {
+							echo '<span class="larger">Projects</span><br/>';
+						}
+						else if (get_post_type() == 'departments') {
+							echo '<span class="larger">Departments</span><br/>';
+						}
+						else {
+							echo '<span class="larger">Archive</span>';
+						}
+
+						single_tag_title('<span class="icon tag-icon"></span>');
+					?>
 				</h1>
 			</header>
-		<?php } ?>
 
 
 		<div class="row">
