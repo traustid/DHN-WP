@@ -302,7 +302,7 @@ ul.ul-buttons {
 
 							min-width: 100%;
 
-							margin: -40px -20px -20px -20px;
+							margin: -20px -20px -20px -20px;
 							padding: 60px 20px 10px 20px;
 
 							border: 1px solid rgba(0, 0, 0, 0.24);
@@ -368,13 +368,19 @@ ul.ul-buttons {
 								background-size: 12px 7px;
 							}
 						}
+
+						.sub-menu {
+							opacity: 1;
+
+							pointer-events: all;
+						}
 					}
 				}
 
 				@media(max-width: 700px) {
 					position: fixed;
 
-					right: 0;
+					left: 0;
 					top: 0;
 					bottom: 0;
 
@@ -382,10 +388,17 @@ ul.ul-buttons {
 
 					background: #fff;
 
-					border-left: 1px solid #acacac;
-					box-shadow: -4px 0px 8px rgba(0, 0, 0, 0.31);
+					border-right: 1px solid #acacac;
+					box-shadow: 4px 0px 8px rgba(0, 0, 0, 0.31);
 
 					z-index: 100;
+
+					.transition(all 200ms ease-in-out);
+					.transform(translateX(-120%));
+
+					&.visible {
+						.transform(translateX(0));
+					}
 
 					li {
 						display: block;
@@ -403,7 +416,12 @@ ul.ul-buttons {
 
 				width: 39px;
 
-				background: #fff;
+				background-color: #fff;
+				background-image: url(img/hamburger.png);
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: 23px 18px;
+
 				box-sizing: border-box;
 
 				text-indent: 1000px;

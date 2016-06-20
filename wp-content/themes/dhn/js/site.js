@@ -10,4 +10,8 @@ $(document).ready(function() {
 		itemSelector: '.grid-item',
 		percentPosition: true
 	});
+
+	$('.menu-button').click(function() {
+		$('ul.menu').toggleClass('visible');
+	});
 });
