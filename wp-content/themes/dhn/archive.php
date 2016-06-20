@@ -32,7 +32,7 @@ get_header(); ?>
 							echo '<span class="larger">Departments</span><br/>';
 						}
 						else {
-							echo '<span class="larger">Archive</span>';
+							echo '<span class="larger">Archive</span><br/>';
 						}
 
 						single_tag_title('<span class="icon tag-icon"></span>');
