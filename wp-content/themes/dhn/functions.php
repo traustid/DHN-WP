@@ -213,6 +213,15 @@ function dhn_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'After content', 'dhn' ),
+		'id'            => 'above-content',
+		'description'   => esc_html__( 'Add widgets here.', 'dhn' ),
+		'before_widget' => '<div id="%1$s" class="container widget %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
 }
 add_action( 'widgets_init', 'dhn_widgets_init' );
 

@@ -103,6 +103,14 @@ get_header(); ?>
 
 			</div>
 		</div>
+
+		<?php if ( is_active_sidebar( 'after-content' ) ) { ?>
+			<div class="row">
+				<div class="twelve columns">
+					<?php dynamic_sidebar( 'after-content' ); ?>
+				</div>
+			</div>
+		<?php } ?>
 	</div>
 
 <?php
