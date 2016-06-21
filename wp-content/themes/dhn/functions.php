@@ -215,7 +215,7 @@ function dhn_widgets_init() {
 	) );
 	register_sidebar( array(
 		'name'          => esc_html__( 'After content', 'dhn' ),
-		'id'            => 'above-content',
+		'id'            => 'after-content',
 		'description'   => esc_html__( 'Add widgets here.', 'dhn' ),
 		'before_widget' => '<div id="%1$s" class="container widget %2$s">',
 		'after_widget'  => '</div>',
