@@ -56,8 +56,8 @@
 	<?php endwhile; ?>
 	</ul>
 
-	<?php if ( $more_news_title && $more_news_url) { ?>
-		<a class="more-link"  href="<?php echo $more_news_url; ?>"><?php echo $more_news_title; ?></a>
+	<?php if ( $widget_html_content) { ?>
+		<?php echo $widget_html_content; ?>
 	<?php } ?>
 
 	<?php echo $after_widget; ?>

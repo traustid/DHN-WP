@@ -92,11 +92,8 @@ foreach ( $size_options as $option ) {
 <p><label for="<?php echo $id_default_url; ?>"><?php _e( 'URL of default thumbnail (start with http://)', 'recent-posts-widget-with-thumbnails-cdh' ); ?>:</label>
 <input class="widefat" id="<?php echo $id_default_url; ?>" name="<?php echo $this->get_field_name( 'default_url' ); ?>" type="text" value="<?php echo esc_url( $default_url ); ?>" /></p>
 
-<p><label for="<?php echo $id_more_news_title; ?>"><?php _e( 'Title of More news link', 'recent-posts-widget-with-thumbnails-cdh' ); ?>:</label>
-<input class="widefat" id="<?php echo $id_more_news_title; ?>" name="<?php echo $this->get_field_name( 'more_news_title' ); ?>" type="text" value="<?php echo $more_news_title; ?>" /></p>
-
-<p><label for="<?php echo $id_more_news_url; ?>"><?php _e( 'Url for More news link', 'recent-posts-widget-with-thumbnails-cdh' ); ?>:</label>
-<input class="widefat" id="<?php echo $id_more_news_url; ?>" name="<?php echo $this->get_field_name( 'more_news_url' ); ?>" type="text" value="<?php echo esc_url( $more_news_url ); ?>" /></p>
+<p><label for="<?php echo $id_widget_html_content; ?>"><?php _e( 'Widget html content:', 'recent-posts-widget-with-thumbnails-cdh' ); ?>:</label>
+<input class="widefat" id="<?php echo $id_widget_html_content; ?>" name="<?php echo $this->get_field_name( 'widget_html_content' ); ?>" type="text" value="<?php echo htmlspecialchars($widget_html_content); ?>" /></p>
 
 more_news_url
 

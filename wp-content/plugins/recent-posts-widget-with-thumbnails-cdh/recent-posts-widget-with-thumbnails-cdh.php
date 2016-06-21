@@ -25,8 +25,7 @@ class Recent_Posts_Widget_With_Thumbnails extends WP_Widget {
 	var $default_thumb_width;  // custom width of the thumbnail
 	var $default_thumb_height; // custom height of the thumbnail
 	var $default_thumb_url; // URL of the default thumbnail
-	var $more_news_url; // URL of the default thumbnail
-	var $more_news_title; // URL of the default thumbnail
+	var $widget_html_content; // Post-widget html content
 	var $default_post_title_length; // number of chars of excerpt
 	var $default_excerpt_length; // number of chars of excerpt
 	var $default_excerpt_more; // characters to indicate further text
@@ -75,8 +74,7 @@ class Recent_Posts_Widget_With_Thumbnails extends WP_Widget {
 		$this->default_excerpt_more		= apply_filters( 'rpwwt_excerpt_more', ' ' . '[&hellip;]' );
 		$this->default_category_ids		= array( 0 );
 		$this->default_thumb_url		= plugins_url( 'default_thumb.gif', __FILE__ );
-		$this->more_news_url			= '';
-		$this->more_news_title			= '';
+		$this->widget_html_content		= '';
 		$this->css_file_path			= dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'public.css';
 		
 		$widget_ops = array( 'classname' => $this->plugin_slug, 'description' => $widget_desc );
@@ -122,8 +120,7 @@ class Recent_Posts_Widget_With_Thumbnails extends WP_Widget {
 		$title					= apply_filters( 'widget_title', $title, $instance, $this->id_base );
 		$category_ids 			= ( ! empty( $instance[ 'category_ids' ] ) )		? array_map( 'absint', $instance[ 'category_ids' ] )	: $this->default_category_ids;
 		$default_url 			= ( ! empty( $instance[ 'default_url' ] ) )			? esc_url_raw( $instance[ 'default_url' ] )				: $this->default_thumb_url;
-		$more_news_url 			= ( ! empty( $instance[ 'more_news_url' ] ) )		? esc_url_raw( $instance[ 'more_news_url' ] )			: $this->more_news_url;
-		$more_news_title 		= ( ! empty( $instance[ 'more_news_title' ] ) )		? esc_html( $instance[ 'more_news_title' ] )			: $this->more_news_title;
+		$widget_html_content 	= ( ! empty( $instance[ 'widget_html_content' ] ) )	? $instance[ 'widget_html_content' ]					: $this->widget_html_content;
 		$thumb_dimensions		= ( ! empty( $instance[ 'thumb_dimensions' ] ) )	? $instance[ 'thumb_dimensions' ]						: $this->default_thumb_dimensions;
 		$excerpt_length 		= ( ! empty( $instance[ 'excerpt_length' ] ) )		? absint( $instance[ 'excerpt_length' ] )				: $this->default_excerpt_length;
 		$number_posts			= ( ! empty( $instance[ 'number_posts' ] ) )		? absint( $instance[ 'number_posts' ] )					: $this->default_number_posts;
@@ -259,8 +256,7 @@ class Recent_Posts_Widget_With_Thumbnails extends WP_Widget {
 		// sanitize user input before update
 		$instance[ 'title' ] 				= ( isset( $new_widget_settings[ 'title' ] ) )					? strip_tags( $new_widget_settings[ 'title' ] )					: '';
 		$instance[ 'default_url' ] 			= ( isset( $new_widget_settings[ 'default_url' ] ) )			? esc_url_raw( $new_widget_settings[ 'default_url' ] )			: $this->default_thumb_url;
-		$instance[ 'more_news_url' ] 		= ( isset( $new_widget_settings[ 'more_news_url' ] ) )			? esc_url_raw( $new_widget_settings[ 'more_news_url' ] )		: $this->more_news_url;
-		$instance[ 'more_news_title' ] 		= ( isset( $new_widget_settings[ 'more_news_title' ] ) )		? strip_tags( $new_widget_settings[ 'more_news_title' ] )		: $this->more_news_title;
+		$instance[ 'widget_html_content' ] 	= ( isset( $new_widget_settings[ 'widget_html_content' ] ) )	? $new_widget_settings[ 'widget_html_content' ] 				: $this->widget_html_content;
 		$instance[ 'thumb_dimensions' ] 	= ( isset( $new_widget_settings[ 'thumb_dimensions' ] ) )		? strip_tags( $new_widget_settings[ 'thumb_dimensions' ] )		: $this->default_thumb_dimensions;
 		$instance[ 'category_ids' ]   		= ( isset( $new_widget_settings[ 'category_ids' ] ) )			? array_map( 'absint', $new_widget_settings[ 'category_ids' ] )	: $this->default_category_ids;
 		$instance[ 'excerpt_length' ] 		= ( isset( $new_widget_settings[ 'excerpt_length' ] ) )			? absint( $new_widget_settings[ 'excerpt_length' ] )			: $this->default_excerpt_length;
@@ -325,8 +321,7 @@ class Recent_Posts_Widget_With_Thumbnails extends WP_Widget {
 		$title					= ( isset( $instance[ 'title' ] ) ) 				? esc_html( $instance[ 'title' ] )						: '';
 		$thumb_dimensions		= ( isset( $instance[ 'thumb_dimensions' ] ) )		? $instance[ 'thumb_dimensions' ]						: $this->default_thumb_dimensions;
 		$default_url			= ( isset( $instance[ 'default_url' ] ) )			? esc_url_raw( $instance[ 'default_url' ] )				: $this->default_thumb_url;
-		$more_news_url			= ( isset( $instance[ 'more_news_url' ] ) )			? esc_url_raw( $instance[ 'more_news_url' ] )			: $this->more_news_url;
-		$more_news_title		= ( isset( $instance[ 'more_news_title' ] ) )		? esc_html( $instance[ 'more_news_title' ] )			: $this->more_news_title;
+		$widget_html_content	= ( isset( $instance[ 'widget_html_content' ] ) )	? $instance[ 'widget_html_content' ]					: $this->widget_html_content;
 		$excerpt_length			= ( isset( $instance[ 'excerpt_length' ] ) )		? absint( $instance[ 'excerpt_length' ] )				: $this->default_excerpt_length;
 		$post_title_length		= ( isset( $instance[ 'post_title_length' ] ) )		? absint( $instance[ 'post_title_length' ] )			: $this->default_post_title_length;
 		$number_posts			= ( isset( $instance[ 'number_posts' ] ) )			? absint( $instance[ 'number_posts' ] )					: $this->default_number_posts;
@@ -368,8 +363,7 @@ class Recent_Posts_Widget_With_Thumbnails extends WP_Widget {
 		// sanitize vars
 		if ( ! $category_ids )		$category_ids		= $this->default_category_ids;
 		if ( ! $default_url )		$default_url		= $this->default_thumb_url;
-		if ( ! $more_news_url )		$more_news_url		= $this->more_news_url;
-		if ( ! $more_news_title )	$more_news_title	= $this->more_news_title;
+		if ( ! $widget_html_content )	$widget_html_content	= $this->widget_html_content;
 		if ( ! $post_title_length )	$post_title_length	= $this->default_post_title_length;
 		if ( ! $excerpt_length )	$excerpt_length		= $this->default_excerpt_length;
 		if ( ! $number_posts )		$number_posts		= $this->default_number_posts;
@@ -380,8 +374,7 @@ class Recent_Posts_Widget_With_Thumbnails extends WP_Widget {
 		// compute ids only once to improve performance
 		$id_category_ids			= $this->get_field_id( 'category_ids' );
 		$id_default_url				= $this->get_field_id( 'default_url' );
-		$id_more_news_url			= $this->get_field_id( 'more_news_url' );
-		$id_more_news_title			= $this->get_field_id( 'more_news_title' );
+		$id_widget_html_content		= $this->get_field_id( 'widget_html_content' );
 		$id_excerpt_length			= $this->get_field_id( 'excerpt_length' );
 		$id_excerpt_more			= $this->get_field_id( 'excerpt_more' );
 		$id_hide_current_post		= $this->get_field_id( 'hide_current_post' );
