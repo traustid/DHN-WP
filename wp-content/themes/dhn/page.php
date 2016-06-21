@@ -15,6 +15,15 @@
 get_header(); ?>
 
 	<div id="primary" class="container">
+
+		<?php if ( is_active_sidebar( 'above-content' ) ) { ?>
+			<div class="row">
+				<div class="twelve columns">
+					<?php dynamic_sidebar( 'above-content' ); ?>
+				</div>
+			</div>
+		<?php } ?>
+
 		<div class="row">
 			<div class="twelve columns">
 
@@ -33,6 +42,14 @@ get_header(); ?>
 
 			</div>
 		</div>
+
+		<?php if ( is_active_sidebar( 'after-content' ) ) { ?>
+			<div class="row">
+				<div class="twelve columns">
+					<?php dynamic_sidebar( 'after-content' ); ?>
+				</div>
+			</div>
+		<?php } ?>
 	</div>
 
 <?php
