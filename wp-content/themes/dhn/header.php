@@ -22,25 +22,25 @@
 
 <body <?php body_class(); ?>>
 
+<div class="site-header">
+
+	<a href="http://cdh-vir-1.it.gu.se:8007/" target="_blank" alt="Digital Humanities in the Nordic Countries" class="dhn-logo"></a>
+
+	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-logo"></a>
+
+	<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php echo get_bloginfo( 'name' ); ?></a></h1>
+	<div class="site-dates"><?php echo get_bloginfo( 'description' ); ?></div>
+
+	<div class="nav-container">
+		<button class="menu-button">Main menu</button>	
+		<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
+	</div>
+
+</div>
 
 <div class="site-sidebar">
-	<a class="site-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>"></a>
-
 	<?php get_sidebar(); ?>
 </div>
 
 <div class="site-main">
 
-	<div class="container site-header">
-		<div class="row">
-			<div class="twelve columns">
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><span class="red">Digital Humanities</span> <span class="blue">in the Nordic Countries</span></a></h1>
-
-				<div class="nav-container">
-					<button class="menu-button">Main menu</button>	
-					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-				</div>
-
-			</div>
-		</div>
-	</div>
