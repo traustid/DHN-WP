@@ -38,9 +38,11 @@
 
 </div>
 
-<div class="site-sidebar">
-	<?php get_sidebar(); ?>
-</div>
+<div class="site-wrapper">
 
-<div class="site-main">
+	<div class="site-sidebar">
+		<?php get_sidebar(); ?>
+	</div>
+
+	<div class="site-main">
 

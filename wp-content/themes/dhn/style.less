@@ -35,6 +35,10 @@ html {
 	background-position: top left;
 }
 
+body {
+	margin: 0;
+}
+
 h1, h2, h3, h4, h5, h6 {
 	a {
 		text-decoration: none;
@@ -138,6 +142,10 @@ ul.ul-buttons {
 
 		background-image: url('img/dhn-logo.png');
 		background-repeat: no-repeat;
+
+		@media(max-width: 700px) {
+			display: none;
+		}
 	}
 
 	.site-logo {
@@ -181,6 +189,16 @@ ul.ul-buttons {
 
 		.transform(translateX(-50%));
 
+		@media(max-width: 650px) {
+			font-size: 1.8rem;
+		}
+
+		@media(max-width: 480px) {
+			width: 100%;
+
+			padding: 10px;
+		}
+
 		a {
 			color: #fff;
 		}
@@ -194,6 +212,7 @@ ul.ul-buttons {
 
 		color: #fff;
 		font-size: 1.7rem;
+		text-align: center;
 
 		.transform(translateX(-50%));
 	}
@@ -210,6 +229,10 @@ ul.ul-buttons {
 		border-top: 1px solid rgba(255, 255, 255, 0.2);
 
 		text-align: center;
+
+		@media(max-width: 700px) {
+			position: relative;
+		}
 
 		ul.menu {
 			margin: 0;
@@ -237,11 +260,20 @@ ul.ul-buttons {
 
 					z-index: 200;
 
+					@media(max-width: 700px) {
+						color: #333;
+						text-align: left;
+					}
+
 				}
 
 				&.current-menu-item, &.current_page_ancestor {
 					>a {
 						font-weight: 700;
+						
+						@media(max-width: 700px) {
+							color: #176184;
+						}
 					}
 				}
 
@@ -366,7 +398,7 @@ ul.ul-buttons {
 			position: absolute;
 
 			right: 20px;
-			top: 50%;
+			top: 20px;
 
 			width: 39px;
 
@@ -382,14 +414,6 @@ ul.ul-buttons {
 
 			overflow: hidden;
 
-			.transform(translateY(-50%));
-
-			@media(max-width: 360px) {
-				top: 20px;
-
-				.transform(translateY(0));
-			}
-
 			@media(min-width: 700px) {
 				display: none;
 			}
@@ -398,11 +422,6 @@ ul.ul-buttons {
 }
 
 .site-sidebar {
-	position: absolute;
-
-	top: 400px;
-	left: 0;
-	bottom: 0;
 
 	width: 270px;
 
@@ -435,6 +454,10 @@ ul.ul-buttons {
 	.textwidget {
 		border: 1px solid #F2F2F2;
 	}
+}
+
+.site-wrapper {
+	margin-top: 400px;
 }
 
 .site-main {
