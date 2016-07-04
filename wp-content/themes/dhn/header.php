@@ -25,6 +25,7 @@
 <div class="site-header">
 
 	<a href="http://dig-hum-nord.eu/" target="_blank" alt="Digital Humanities in the Nordic Countries" class="dhn-logo"></a>
+	
 	<a href="http://cdh.hum.gu.se/" target="_blank" alt="Centrum för digital humaniora" class="cdh-logo"></a>
 
 	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-logo"></a>
